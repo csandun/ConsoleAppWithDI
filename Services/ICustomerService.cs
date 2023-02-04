@@ -1,6 +1,7 @@
 ﻿namespace ConsoleAppWithDI.Services;
 
-public class ICustomerService
+public interface ICustomerService
 {
-    
+    public void CalculateCustomerAge(int id);
+
 }
