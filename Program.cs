@@ -1,5 +1,6 @@
 ﻿using ConsoleAppWithDI;
 using ConsoleAppWithDI.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -24,5 +25,9 @@ IHostBuilder CreateHostBuilder(string[] strings)
         {
             services.AddSingleton<ICustomerService, CustomerService>();
             services.AddSingleton<App>();
+        })
+        .ConfigureAppConfiguration(app =>
+        {
+            app.AddJsonFile("appsettings.json");
         });
 }
